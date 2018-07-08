@@ -11,7 +11,7 @@
   DTS:LocaleID="1049"
   DTS:ObjectName="SmartLabs_EuroBounds"
   DTS:VersionBuild="213"
-  DTS:VersionGUID="{83BEF2CA-791E-446C-BB3B-3444FFE8DDD9}">
+  DTS:VersionGUID="{EAA51C83-0690-4ED3-9AA3-D0B29BD4D10F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -959,7 +959,7 @@
               contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;11"
               description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
               name="Eurobounds bounds"
-              version="11">
+              version="9">
               <properties>
                 <property
                   dataType="System.String"
