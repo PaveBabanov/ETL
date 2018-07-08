@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/14/2018 10:49:52 PM"
@@ -10,8 +10,8 @@
   DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1049"
   DTS:ObjectName="SmartLabs_Corporate_OFZ_Subfed"
-  DTS:VersionBuild="225"
-  DTS:VersionGUID="{A024139E-20FA-425B-A3AE-5E774351A20E}">
+  DTS:VersionBuild="226"
+  DTS:VersionGUID="{A8D2514E-01E0-4721-9596-3AD7A0A61D4C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -7424,18 +7424,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="202,42"
           Id="Package\Get data from STG Table"
-          TopLeft="353,214" />
+          TopLeft="165,200" />
         <NodeLayout
           Size="192,42"
           Id="Package\Parse Data from HTML"
-          TopLeft="360,137" />
+          TopLeft="170,125" />
         <NodeLayout
           Size="143,42"
           Id="Package\Truncate STG"
-          TopLeft="389,61" />
+          TopLeft="199,49" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="458.25,103">
+          TopLeft="268.25,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7457,18 +7457,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="455,179">
+          TopLeft="266,167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,27.5">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
