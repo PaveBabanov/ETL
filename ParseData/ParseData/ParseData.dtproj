@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CS14280</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPk9klGGpEUW6kJ7w9oxu6wAAAAACAAAAAAAQZgAAAAEAACAAAAAaoBvi2E8YlRLQAFDhJWFJbEYajQM3HYThqNeYdF9nEwAAAAAOgAAAAAIAACAAAADLFo8dH8EHnpYD4BrZ9BzvG1Hm9MAYHcYYN3fFmmkdlJAAAAAlTwQYF5P7ptsqqyF0rfhVwa9gdRNi9OU95Ng8BlZZ0uSZw0GkFo9RMHcmX3ytXIcmkr+yzZA3kbtLO4Uk+Uw8ozgBDyYwJPg5Sh7KYVRG2n3xN2Eg+38LEwxbR58LKe3lCPN5NSalTMWUYQk8GxmniZq3DvSIUYDIlO+R15cxKUBZ4VkUVTnP/wbfJZmDH5xAAAAARMS0fbWqKyRZ84zrTGEcayyjmebMI3/f+B11Tgm2Rlvyoa/b66WrZewffyvaiYBsDTyidehKtelbw1/ENDREqw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPGTj0ZXh2EaXhYLZeUSi+AAAAAACAAAAAAADZgAAwAAAABAAAAAST/CX5Smc0rLHu4pIFnh9AAAAAASAAACgAAAAEAAAAGV5fF6vfeAq0r6wE9AmIYyIAAAAdGwuwhXXPyd0RNQIgPC00kGbrI2UIULFfJPVUFi6ytbHc/4mm7rFy7NypNBRdZCdt7ac3FAHUU21swCTE+XO//Svv+WgmVPJYe/Kf/01d/8QoZT2p7VnpYNSqCwVfsjIqMjs9WVNGLO7FhM3jlY+1dQ43Acd5PBIc0UmqXGr++7bLk8wON8I2RQAAAAm5+BLvNenGZL6THOEmvrorgjIhw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="SmartLabs_Corporate_OFZ_Subfed.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SmartLabs_EuroBounds.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Key_Rate.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -46,7 +47,7 @@
                 <SSIS:Property SSIS:Name="VersionBuild">226</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{A8D2514E-01E0-4721-9596-3AD7A0A61D4C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{799CF9C6-1ED1-46D1-99FA-CD95E1EC6835}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -300,6 +301,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Key_Rate.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{8CA5F96B-544F-4ADC-A294-CE482728E895}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Key_Rate</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E36B6E15-EB60-4D22-B10A-214B90757118}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
