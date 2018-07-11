@@ -10,11 +10,21 @@
   DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1033"
   DTS:ObjectName="Key_Rate"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{FEF671C3-7F53-4F7D-AD2F-AB2F3F84B550}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{2B4D3DFA-FA38-4A2F-84B7-1D3D88BB1B41}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CS14280.DB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{28A6CC51-0BF1-4678-AB41-97D6E5914240}"
+      DTS:ObjectName="CS14280.DB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=CS14280;Initial Catalog=DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.DB]"
       DTS:CreationName="OLEDB"
@@ -1250,6 +1260,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DatetimeOfParsing]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DatetimeOfParsing"
+                      externalMetadataColumnId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DatetimeofParsing]"
+                      lineageId="Package\Get Key Rate\AddDate.Outputs[Derived Column Output].Columns[DatetimeOfParsing]" />
+                    <inputColumn
                       refId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Float_Rate]"
                       cachedDataType="r4"
                       cachedName="Float_Rate"
@@ -1261,12 +1277,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
                       cachedName="date_DateOfChange"
                       externalMetadataColumnId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfChange]"
                       lineageId="Package\Get Key Rate\Data Conversion.Outputs[Data Conversion Output].Columns[date_DateOfChange]" />
-                    <inputColumn
-                      refId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DatetimeOfParsing]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="DatetimeOfParsing"
-                      externalMetadataColumnId="Package\Get Key Rate\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DatetimeofParsing]"
-                      lineageId="Package\Get Key Rate\AddDate.Outputs[Derived Column Output].Columns[DatetimeOfParsing]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1347,7 +1357,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="145,42"
           Id="Package\Get Key Rate"
-          TopLeft="438,116" />
+          TopLeft="461,113" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1359,25 +1369,33 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         <NodeLayout
           Size="102,42"
           Id="Package\Get Key Rate\CBR"
-          TopLeft="468,173" />
+          TopLeft="463,122" />
         <NodeLayout
           Size="161,42"
           Id="Package\Get Key Rate\Data Conversion"
-          TopLeft="440,256" />
+          TopLeft="437,200" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Get Key Rate\AddDate"
+          TopLeft="458,266" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Get Key Rate\OLE DB Destination"
+          TopLeft="433,339" />
         <EdgeLayout
-          Id="Package\Get Key Rate.Paths[Output]"
-          TopLeft="519.75,215">
+          Id="Package\Get Key Rate.Paths[Data Conversion Output]"
+          TopLeft="518.25,242">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,24"
               Start="0,0"
-              End="0,33.5">
+              End="0,16.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1386,28 +1404,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Get Key Rate\OLE DB Destination"
-          TopLeft="433,416" />
-        <NodeLayout
-          Size="122,42"
-          Id="Package\Get Key Rate\AddDate"
-          TopLeft="458,333" />
         <EdgeLayout
-          Id="Package\Get Key Rate.Paths[Data Conversion Output]"
-          TopLeft="519.75,298">
+          Id="Package\Get Key Rate.Paths[Output]"
+          TopLeft="515.75,164">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35"
+              EndConnector="0,36"
               Start="0,0"
-              End="0,27.5">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1418,18 +1428,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Get Key Rate.Paths[Derived Column Output]"
-          TopLeft="520.25,375">
+          TopLeft="520.25,308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41"
+              EndConnector="0,31"
               Start="0,0"
-              End="0,33.5">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.5" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
