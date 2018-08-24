@@ -26,165 +26,19 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">CS14280</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPGTj0ZXh2EaXhYLZeUSi+AAAAAACAAAAAAADZgAAwAAAABAAAAAb03nZN7ZnUx+j6xCeuS7gAAAAAASAAACgAAAAEAAAADOX3WaED0bL2TObYbFyltqIAAAAP253Vx0u2q5MZLi4ajugTWRlkt+iMHvX/9/oyP4zwXmN0L4BGZUwAfJjh9I7JElirE2cE8z/h5hMuHTbJLr69jxrc9Dsqa2Df/mtpMy0cNS8PSlUAQw4e9YHCoY0ay+J1EcOP3RHVPpvTjbuwU1tMQ4XfOZhr+3eGdtQWg1Yh1Zk65Chrjx8XxQAAACFeDp7NgZm/qxVrGXs3A3wv8flLw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhlvmE00rNUeCy5Ht2pRdTAAAAAACAAAAAAAQZgAAAAEAACAAAACgyxaA5DwS4Qp6CGgbsFdLugcJiCR7HhJMRj2cW+euqwAAAAAOgAAAAAIAACAAAAAJh9ZTY/dUpBQ/qHKzwLQ546H9IwyvkT0Y+nQTvnIZTZAAAACCXxP6Scs1fup/ph6qXl7GchIlBrwf1D6ZGAXXIjWt7q52zsD6CIg0NQvxVZ6i67Z9UJYmOtQn1csfNZnhWVQTWLNgJrl04aB9NW2mG1fb8RJ4gAAcTx/nAciWmpzxyzZ12Wr9rApXV/eYKw2llBNMoi/S15wlBorDTbhpngMMrrc/+GLlHG/kmLxXnwIaxYFAAAAAwkUSPRy7jbISSz2QgY24XCxUf9+YlWcGiIiCTZm4EPZBifzxM8vCrq83ppvJ+MwFdrYyVkJtAL/Y9mSbWgQBSw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="SmartLabs_Corporate_OFZ_Subfed.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="SmartLabs_EuroBounds.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Key_Rate.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="AKPA.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="loading_with_value.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="SmartLabs_Corporate_OFZ_Subfed.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="SmartLabs_Corporate_OFZ_Subfed.dtsx">
-              <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{E02A9F48-742C-47AA-9410-32E5F81EED29}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">SmartLabs_Corporate_OFZ_Subfed</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">227</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionComments">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BAACD747-98A0-4500-B4D3-8DD7AD87CEB3}</SSIS:Property>
-                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
-                <SSIS:Property SSIS:Name="Description">
-                </SSIS:Property>
-                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
-              </SSIS:Properties>
-              <SSIS:Parameters>
-                <SSIS:Parameter SSIS:Name="URL_Corporate_Bonds">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{859A4045-06BA-4490-B734-F25BAA6AF447}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">Ссылка на корпоративые облигации , Московская Биржа</SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://smart-lab.ru/q/bonds/</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="URL_OFZ_Bonds">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{FDE95F5A-DE34-41E9-96FD-E4871FDB0258}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">Ссылка на ОФЗ-облигации, Московская Биржа</SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://smart-lab.ru/q/ofz</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="UrlSubfed">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">{53440F6B-F801-4F27-9546-100EB3E42B3F}</SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">Ссылка на облигации субъектов и муниципальных образований, Московская биржа</SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">https://smart-lab.ru/q/subfed/</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.ConnectionString">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;Initial Catalog=DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.InitialCatalog">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">DB</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.Password">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.RetainSameConnection">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.ServerName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">localhost</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.localhost.DB.UserName">
-                  <SSIS:Properties>
-                    <SSIS:Property SSIS:Name="ID">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="CreationName">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="Description">
-                    </SSIS:Property>
-                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
-                  </SSIS:Properties>
-                </SSIS:Parameter>
-              </SSIS:Parameters>
-            </SSIS:PackageMetaData>
             <SSIS:PackageMetaData SSIS:Name="SmartLabs_EuroBounds.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{2D471FFC-ECBB-4697-925E-93C4DE06995D}</SSIS:Property>
@@ -515,16 +369,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="loading_with_value.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="SmartLabs_Corporate_OFZ_Subfed.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{89DEF5A0-B883-4C5B-A9DA-55FFA79F47EF}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">loading_with_value</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{E069C68F-1D18-4C19-B4B0-1F5C07D1EA79}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">SmartLabs_Corporate_OFZ_Subfed</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">231</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">237</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{C8DA6886-EA06-4557-A2EF-0F7B4BB4F852}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{37135A38-BF52-4B50-80A0-EEC94016E22F}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

@@ -5,20 +5,20 @@
   DTS:CreationName=""
   DTS:CreatorComputerName="BABANOV1C75"
   DTS:CreatorName="BABANOV1C75\babanov"
-  DTS:DTSID="{E02A9F48-742C-47AA-9410-32E5F81EED29}"
+  DTS:DTSID="{E069C68F-1D18-4C19-B4B0-1F5C07D1EA79}"
   DTS:ExecutableType=""
   DTS:LastModifiedProductVersion="14.0.3008.28"
   DTS:LocaleID="1049"
   DTS:ObjectName="SmartLabs_Corporate_OFZ_Subfed"
-  DTS:VersionBuild="227"
-  DTS:VersionGUID="{BAACD747-98A0-4500-B4D3-8DD7AD87CEB3}">
+  DTS:VersionBuild="237"
+  DTS:VersionGUID="{37135A38-BF52-4B50-80A0-EEC94016E22F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.DB]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{9A497571-9649-4B32-A89B-A60E86296CD4}"
+      DTS:DTSID="{CB499C04-F0FD-4D3F-B411-24CF2E7638D0}"
       DTS:ObjectName="localhost.DB">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
       DTS:CreationName=""
       DTS:DataType="8"
       DTS:Description="Ссылка на облигации субъектов и муниципальных образований, Московская биржа"
-      DTS:DTSID="{53440F6B-F801-4F27-9546-100EB3E42B3F}"
+      DTS:DTSID="{08639746-07D9-4F91-BF5D-F61B8D9A62C0}"
       DTS:ObjectName="UrlSubfed">
       <DTS:Property
         DTS:DataType="8"
@@ -41,7 +41,7 @@
       DTS:CreationName=""
       DTS:DataType="8"
       DTS:Description="Ссылка на корпоративые облигации , Московская Биржа"
-      DTS:DTSID="{859A4045-06BA-4490-B734-F25BAA6AF447}"
+      DTS:DTSID="{0CB39516-4B74-48B1-9231-E1D9C7024939}"
       DTS:ObjectName="URL_Corporate_Bonds">
       <DTS:Property
         DTS:DataType="8"
@@ -51,7 +51,7 @@
       DTS:CreationName=""
       DTS:DataType="8"
       DTS:Description="Ссылка на ОФЗ-облигации, Московская Биржа"
-      DTS:DTSID="{FDE95F5A-DE34-41E9-96FD-E4871FDB0258}"
+      DTS:DTSID="{34CE460C-5BC5-4A8B-AA5B-4AAB8B823499}"
       DTS:ObjectName="URL_OFZ_Bonds">
       <DTS:Property
         DTS:DataType="8"
@@ -64,7 +64,7 @@
       DTS:refId="Package\Get data from STG Table"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Р вЂ”Р В°Р Т‘Р В°РЎвЂЎР В° Р С—Р С•РЎвЂљР С•Р С”Р В° Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦"
-      DTS:DTSID="{33CDE077-0AEB-49EC-B90F-3ECED20C2C7D}"
+      DTS:DTSID="{E66D840C-5B9A-43B3-A033-9E8F05B9B050}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get data from STG Table"
@@ -117,6 +117,7 @@
    	  ,case when Try_convert(float,[DurationYears])&gt; 0 then Try_convert(float,[DurationYears]) else null end as [DurationYears]  
       ,case when [DateOfCoupon_] &gt; 0 then cast(cast([DateOfCoupon_]  as char) as date) else null end as [DateOfCoupon]    
       ,case when Try_convert(int,[Offer]) &gt; 0 then cast(cast([Offer]  as char) as date) else null end as [Offer]
+	  ,TypeOfBond
   FROM [DB].[dbo].[STG_TABLE]</property>
                 <property
                   dataType="System.String"
@@ -319,6 +320,15 @@
                       lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[DateTimeOfParsing]"
                       name="DateTimeOfParsing"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[TypeOfBond]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].ExternalColumns[TypeOfBond]"
+                      lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[TypeOfBond]"
+                      name="TypeOfBond"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -398,6 +408,10 @@
                       refId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].ExternalColumns[DateTimeOfParsing]"
                       dataType="dbTimeStamp"
                       name="DateTimeOfParsing" />
+                    <externalMetadataColumn
+                      refId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].ExternalColumns[TypeOfBond]"
+                      dataType="i4"
+                      name="TypeOfBond" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -499,6 +513,11 @@
                       dataType="dbDate"
                       lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[Offer]"
                       name="Offer" />
+                    <outputColumn
+                      refId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[TypeOfBond]"
+                      dataType="i4"
+                      lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[TypeOfBond]"
+                      name="TypeOfBond" />
                     <outputColumn
                       refId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[ErrorCode]"
                       dataType="i4"
@@ -700,6 +719,12 @@
                       cachedName="DateTimeOfParsing"
                       externalMetadataColumnId="Package\Get data from STG Table\Destinations Q__Bounds.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateTimeOfParsing]"
                       lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[DateTimeOfParsing]" />
+                    <inputColumn
+                      refId="Package\Get data from STG Table\Destinations Q__Bounds.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[TypeOfBond]"
+                      cachedDataType="i4"
+                      cachedName="TypeOfBond"
+                      externalMetadataColumnId="Package\Get data from STG Table\Destinations Q__Bounds.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[TypeOfBond]"
+                      lineageId="Package\Get data from STG Table\Data sourse STG.Outputs[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;].Columns[TypeOfBond]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -779,6 +804,10 @@
                       refId="Package\Get data from STG Table\Destinations Q__Bounds.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateTimeOfParsing]"
                       dataType="dbTimeStamp"
                       name="DateTimeOfParsing" />
+                    <externalMetadataColumn
+                      refId="Package\Get data from STG Table\Destinations Q__Bounds.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[TypeOfBond]"
+                      dataType="i4"
+                      name="TypeOfBond" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -822,7 +851,7 @@
       DTS:refId="Package\Parse Data from HTML"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{F58FB97E-6AAA-453A-B28C-9ACE9B1BE2AA}"
+      DTS:DTSID="{26E762D2-A1E1-40EC-A33D-D5DA99DB0462}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Parse Data from HTML"
@@ -832,6 +861,225 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\Parse Data from HTML\add 1 as Corporate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="add 1 as Corporate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Parse Data from HTML\add 1 as Corporate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 1 as Corporate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      name="TypeOfBond"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 1 as Corporate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parse Data from HTML\add 2 as OFZ"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="add 2 as OFZ"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Parse Data from HTML\add 2 as OFZ.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 2 as OFZ.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      name="TypeOfBond"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">2</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">2</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 2 as OFZ.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Parse Data from HTML\add 3 as subfed"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="add 3 as subfed"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Parse Data from HTML\add 3 as subfed.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 3 as subfed.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Output].Columns[TypeOfBond]"
+                      name="TypeOfBond"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">3</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Parse Data from HTML\add 3 as subfed.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\Parse Data from HTML\Corporate"
               componentClassID="Microsoft.ManagedComponentHost"
@@ -4305,323 +4553,333 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               </outputs>
             </component>
             <component
-              refId="Package\Parse Data from HTML\STG_table"
+              refId="Package\Parse Data from HTML\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Р СњР В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ &quot;OLE DB&quot;;Р С™Р С•РЎР‚Р С—Р С•РЎР‚Р В°РЎвЂ Р С‘РЎРЏ Р СљР В°Р в„–Р С”РЎР‚Р С•РЎРѓР С•РЎвЂћРЎвЂљ. Microsoft SQL Server. (C) Р С™Р С•РЎР‚Р С—Р С•РЎР‚Р В°РЎвЂ Р С‘РЎРЏ Р СљР В°Р в„–Р С”РЎР‚Р С•РЎРѓР С•РЎвЂћРЎвЂљ (Microsoft Corporation). Р вЂ™РЎРѓР Вµ Р С—РЎР‚Р В°Р Р†Р В° Р В·Р В°РЎвЂ°Р С‘РЎвЂ°Р ВµР Р…РЎвЂ№. http://www.microsoft.com/sql/support;4"
-              description="Р СњР В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ &quot;OLE DB&quot;"
-              name="STG_table"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
               usesDispositions="true"
               version="4">
               <properties>
                 <property
                   dataType="System.Int32"
-                  description="Р вЂ™РЎР‚Р ВµР СРЎРЏ Р С•Р В¶Р С‘Р Т‘Р В°Р Р…Р С‘РЎРЏ Р С”Р С•Р СР В°Р Р…Р Т‘РЎвЂ№, Р Р† РЎРѓР ВµР С”РЎС“Р Р…Р Т‘Р В°РЎвЂ¦. Р вЂ™Р ВµР В»Р С‘РЎвЂЎР С‘Р Р…Р В° 0 Р С•Р В·Р Р…Р В°РЎвЂЎР В°Р ВµРЎвЂљ Р Р…Р ВµР С•Р С–РЎР‚Р В°Р Р…Р С‘РЎвЂЎР ВµР Р…Р Р…Р С•Р Вµ Р Р†РЎР‚Р ВµР СРЎРЏ Р С•Р В¶Р С‘Р Т‘Р В°Р Р…Р С‘РЎРЏ."
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
                   name="CommandTimeout">0</property>
                 <property
                   dataType="System.String"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ Р С‘Р СРЎРЏ Р С•Р В±РЎР‰Р ВµР С”РЎвЂљР В° Р В±Р В°Р В·РЎвЂ№ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦, Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР СР С•Р С–Р С• Р Т‘Р В»РЎРЏ Р С•РЎвЂљР С”РЎР‚РЎвЂ№РЎвЂљР С‘РЎРЏ Р Р…Р В°Р В±Р С•РЎР‚Р В° РЎРѓРЎвЂљРЎР‚Р С•Р С”."
+                  description="Specifies the name of the database object used to open a rowset."
                   name="OpenRowset">[dbo].[STG_TABLE]</property>
                 <property
                   dataType="System.String"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ Р С—Р ВµРЎР‚Р ВµР СР ВµР Р…Р Р…РЎС“РЎР‹, РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р В°РЎвЂ°РЎС“РЎР‹ Р С‘Р СРЎРЏ Р С•Р В±РЎР‰Р ВµР С”РЎвЂљР В° Р В±Р В°Р В·РЎвЂ№ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦, Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР СР С•Р С–Р С• Р Т‘Р В»РЎРЏ Р С•РЎвЂљР С”РЎР‚РЎвЂ№РЎвЂљР С‘РЎРЏ Р Р…Р В°Р В±Р С•РЎР‚Р В° РЎРѓРЎвЂљРЎР‚Р С•Р С”."
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
                   name="OpenRowsetVariable"></property>
                 <property
                   dataType="System.String"
-                  description="Р С™Р С•Р СР В°Р Р…Р Т‘Р В° SQL Р Т‘Р В»РЎРЏ Р Р†РЎвЂ№Р С—Р С•Р В»Р Р…Р ВµР Р…Р С‘РЎРЏ."
+                  description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ Р С”Р С•Р Т‘Р С•Р Р†РЎС“РЎР‹ РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎС“ РЎРѓРЎвЂљР С•Р В»Р В±РЎвЂ Р В°, Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР СРЎС“РЎР‹, Р С”Р С•Р С–Р Т‘Р В° Р Р…Р ВµР Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р Р…РЎвЂ№ РЎРѓР Р†Р ВµР Т‘Р ВµР Р…Р С‘РЎРЏ Р С• Р С”Р С•Р Т‘Р С•Р Р†Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р Вµ Р С‘Р В· Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦."
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
                   name="DefaultCodePage">1251</property>
                 <property
                   dataType="System.Boolean"
-                  description="Р вЂ™РЎвЂ№Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ Р В±Р ВµР В·РЎС“РЎРѓР В»Р С•Р Р†Р Р…Р С•Р Вµ Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°Р Р…Р С‘Р Вµ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ РЎРѓР Р†Р С•Р в„–РЎРѓРЎвЂљР Р†Р В° DefaultCodePage Р С—РЎР‚Р С‘ Р С•Р С—Р С‘РЎРѓР В°Р Р…Р С‘Р С‘ РЎРѓР С‘Р СР Р†Р С•Р В»РЎРЉР Р…РЎвЂ№РЎвЂ¦ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦."
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
                   name="AlwaysUseDefaultCodePage">false</property>
                 <property
                   dataType="System.Int32"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР СРЎвЂ№Р в„– РЎР‚Р ВµР В¶Р С‘Р С Р Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р В° Р С” Р В±Р В°Р В·Р Вµ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦."
+                  description="Specifies the mode used to access the database."
                   name="AccessMode"
                   typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ, Р Т‘Р С•Р В»Р В¶Р Р…РЎвЂ№ Р В»Р С‘ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ Р Р† РЎРѓРЎвЂљР С•Р В»Р В±РЎвЂ Р В°РЎвЂ¦ Р С‘Р Т‘Р ВµР Р…РЎвЂљР С‘РЎвЂћР С‘Р С”Р В°РЎвЂљР С•РЎР‚Р С•Р Р† Р С”Р С•Р С—Р С‘РЎР‚Р С•Р Р†Р В°РЎвЂљРЎРЉРЎРѓРЎРЏ Р Р† Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ. Р вЂўРЎРѓР В»Р С‘ РЎРѓР Р†Р С•Р в„–РЎРѓРЎвЂљР Р†Р С• Р С‘Р СР ВµР ВµРЎвЂљ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ false, Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ Р Р† РЎРѓРЎвЂљР С•Р В»Р В±РЎвЂ Р В°РЎвЂ¦ Р С‘Р Т‘Р ВµР Р…РЎвЂљР С‘РЎвЂћР С‘Р С”Р В°РЎвЂљР С•РЎР‚Р С•Р Р† Р В±РЎС“Р Т‘РЎС“РЎвЂљ РЎРѓР С•Р В·Р Т‘Р В°Р Р…РЎвЂ№ Р В°Р Р†РЎвЂљР С•Р СР В°РЎвЂљР С‘РЎвЂЎР ВµРЎРѓР С”Р С‘ Р Р† Р СР ВµРЎРѓРЎвЂљР Вµ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ. Р СџРЎР‚Р С‘Р СР ВµР Р…РЎРЏР ВµРЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† РЎвЂљР С•Р С РЎРѓР В»РЎС“РЎвЂЎР В°Р Вµ, Р ВµРЎРѓР В»Р С‘ Р Р†Р С”Р В»РЎР‹РЎвЂЎР ВµР Р…Р В° Р В±РЎвЂ№РЎРѓРЎвЂљРЎР‚Р В°РЎРЏ Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р В°."
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
                   name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
-                  description="Р Р€Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ, Р В±РЎС“Р Т‘РЎС“РЎвЂљ Р В»Р С‘ Р Р† Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р Р†РЎРѓРЎвЂљР В°Р Р†Р В»РЎРЏРЎвЂљРЎРЉРЎРѓРЎРЏ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ NULL Р Т‘Р В»РЎРЏ РЎРѓРЎвЂљР С•Р В»Р В±РЎвЂ Р С•Р Р†, РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р В°РЎвЂ°Р С‘РЎвЂ¦ Р С‘РЎвЂ¦. Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ false Р С—Р С•Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р ВµРЎвЂљ, РЎвЂЎРЎвЂљР С• Р ВµРЎРѓР В»Р С‘ РЎРѓРЎвЂљР С•Р В»Р В±Р ВµРЎвЂ  Р С‘Р СР ВµР ВµРЎвЂљ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ NULL, РЎвЂљР С• Р Р† Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р В±РЎС“Р Т‘Р ВµРЎвЂљ Р Р†РЎРѓРЎвЂљР В°Р Р†Р В»Р ВµР Р…Р С• Р ВµР С–Р С• Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р С—Р С• РЎС“Р СР С•Р В»РЎвЂЎР В°Р Р…Р С‘РЎР‹. Р СџРЎР‚Р С‘Р СР ВµР Р…РЎРЏР ВµРЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† РЎРѓР В»РЎС“РЎвЂЎР В°Р Вµ, Р ВµРЎРѓР В»Р С‘ Р Р†Р С”Р В»РЎР‹РЎвЂЎР ВµР Р…Р В° Р В±РЎвЂ№РЎРѓРЎвЂљРЎР‚Р В°РЎРЏ Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р В°."
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
                   name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
-                  description="Р вЂ”Р В°Р Т‘Р В°Р ВµРЎвЂљ Р С—Р В°РЎР‚Р В°Р СР ВµРЎвЂљРЎР‚РЎвЂ№ Р В±РЎвЂ№РЎРѓРЎвЂљРЎР‚Р С•Р в„– Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р С‘. Р СџРЎР‚Р С‘Р СР ВµР Р…РЎРЏР ВµРЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† РЎвЂљР С•Р С РЎРѓР В»РЎС“РЎвЂЎР В°Р Вµ, Р ВµРЎРѓР В»Р С‘ Р Р†Р С”Р В»РЎР‹РЎвЂЎР ВµР Р…Р В° Р В±РЎвЂ№РЎРѓРЎвЂљРЎР‚Р В°РЎРЏ Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р В°."
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
                   name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
-                  description="Р вЂ”Р В°Р Т‘Р В°Р ВµРЎвЂљ, Р С”Р С•Р С–Р Т‘Р В° Р Р†РЎвЂ№Р Т‘Р В°РЎР‹РЎвЂљРЎРѓРЎРЏ РЎРѓР С•Р С•Р В±РЎвЂ°Р ВµР Р…Р С‘РЎРЏ Р С• РЎвЂћР С‘Р С”РЎРѓР В°РЎвЂ Р С‘Р С‘ РЎвЂљРЎР‚Р В°Р Р…Р В·Р В°Р С”РЎвЂ Р С‘Р С‘ Р Р† РЎвЂ¦Р С•Р Т‘Р Вµ Р Р†РЎРѓРЎвЂљР В°Р Р†Р С”Р С‘ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦. Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ 0 Р В·Р В°Р Т‘Р В°Р ВµРЎвЂљ, РЎвЂЎРЎвЂљР С• Р С—Р С• Р С•Р С”Р С•Р Р…РЎвЂЎР В°Р Р…Р С‘Р С‘ Р Р†РЎРѓРЎвЂљР В°Р Р†Р С”Р С‘ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦ Р В±РЎС“Р Т‘Р ВµРЎвЂљ Р Р†РЎвЂ№Р Т‘Р В°Р Р…Р С• Р С•Р Т‘Р Р…Р С• РЎРѓР С•Р С•Р В±РЎвЂ°Р ВµР Р…Р С‘Р Вµ Р С• РЎвЂћР С‘Р С”РЎРѓР В°РЎвЂ Р С‘Р С‘ РЎвЂљРЎР‚Р В°Р Р…Р В·Р В°Р С”РЎвЂ Р С‘Р С‘. Р СџРЎР‚Р С‘Р СР ВµР Р…РЎРЏР ВµРЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† РЎвЂљР С•Р С РЎРѓР В»РЎС“РЎвЂЎР В°Р Вµ, Р ВµРЎРѓР В»Р С‘ Р Р†Р С”Р В»РЎР‹РЎвЂЎР ВµР Р…Р В° Р В±РЎвЂ№РЎРѓРЎвЂљРЎР‚Р В°РЎРЏ Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р В°."
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
                   name="FastLoadMaxInsertCommitSize">2147483647</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Parse Data from HTML\STG_table.Connections[OleDbConnection]"
+                  refId="Package\Parse Data from HTML\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.DB]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.DB]"
-                  description="Р РЋР С•Р ВµР Т‘Р С‘Р Р…Р ВµР Р…Р С‘Р Вµ OLE DB РЎРѓРЎР‚Р ВµР Т‘РЎвЂ№ Р Р†РЎвЂ№Р С—Р С•Р В»Р Р…Р ВµР Р…Р С‘РЎРЏ, Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР СР С•Р Вµ Р Т‘Р В»РЎРЏ Р Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р В° Р С” Р В±Р В°Р В·Р Вµ Р Т‘Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦."
+                  description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;]"
-                  errorOrTruncationOperation="Р вЂ™РЎРѓРЎвЂљР В°Р Р†Р С‘РЎвЂљРЎРЉ"
+                  refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
-                  name="Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;">
+                  name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[NumInTable]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NumInTable]"
                       cachedDataType="i4"
                       cachedName="NumInTable"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NumInTable]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumInTable]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NumInTable]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[NameOfBound]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NameOfBound]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="NameOfBound"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NameOfBound]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NameOfBound]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NameOfBound]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[BoundId]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BoundId]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="BoundId"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[BoundId]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BoundId]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[BoundId]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[YearsToRedemption]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[YearsToRedemption]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="YearsToRedemption"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[YearsToRedemption]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearsToRedemption]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[YearsToRedemption]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[DoxodnosTb]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoxodnosTb]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DoxodnosTb"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DoxodnosTb]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoxodnosTb]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DoxodnosTb]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[GodCupDox]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GodCupDox]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="GodCupDox"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[GodCupDox]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GodCupDox]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[GodCupDox]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[CupDoxPosl]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CupDoxPosl]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="CupDoxPosl"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[CupDoxPosl]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CupDoxPosl]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CupDoxPosl]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[Price]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Price"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Price]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Price]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[AmountOfMoneyMillion]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AmountOfMoneyMillion]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="AmountOfMoneyMillion"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[AmountOfMoneyMillion]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AmountOfMoneyMillion]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[AmountOfMoneyMillion]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[CuponPrice]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CuponPrice]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="CuponPrice"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[CuponPrice]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CuponPrice]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CuponPrice]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[FrequencyPerYear]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FrequencyPerYear]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="FrequencyPerYear"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[FrequencyPerYear]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyPerYear]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[FrequencyPerYear]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[NKDrub]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NKDrub]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="NKDrub"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NKDrub]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NKDrub]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NKDrub]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[DurationYears]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DurationYears]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="DurationYears"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DurationYears]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DurationYears]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DurationYears]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[Offer]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Offer]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Offer"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Offer]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Offer]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Offer]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[DateTimeOfBound_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateTimeOfBound_]"
                       cachedDataType="dbTime"
                       cachedName="DateTimeOfBound_"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateTimeOfBound_]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateTimeOfBound_]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound_]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[Redemption_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Redemption_]"
                       cachedDataType="i4"
                       cachedName="Redemption_"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Redemption_]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Redemption_]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Redemption_]" />
                     <inputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[DateOfCoupon_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfCoupon_]"
                       cachedDataType="i4"
                       cachedName="DateOfCoupon_"
-                      externalMetadataColumnId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateOfCoupon_]"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfCoupon_]"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfCoupon_]" />
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TypeOfBond]"
+                      cachedDataType="i4"
+                      cachedName="TypeOfBond"
+                      externalMetadataColumnId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypeOfBond]"
+                      lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NumInTable]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumInTable]"
                       dataType="i4"
                       name="NumInTable" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateTimeOfBound_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateTimeOfBound_]"
                       dataType="dbTimeStamp"
                       name="DateTimeOfBound_" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NameOfBound]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NameOfBound]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="NameOfBound" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[BoundId]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BoundId]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="BoundId" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Redemption_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Redemption_]"
                       dataType="i4"
                       name="Redemption_" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[YearsToRedemption]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearsToRedemption]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="YearsToRedemption" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DoxodnosTb]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DoxodnosTb]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="DoxodnosTb" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[GodCupDox]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GodCupDox]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="GodCupDox" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[CupDoxPosl]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CupDoxPosl]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="CupDoxPosl" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Price]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="Price" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[AmountOfMoneyMillion]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AmountOfMoneyMillion]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="AmountOfMoneyMillion" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[CuponPrice]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CuponPrice]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="CuponPrice" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[FrequencyPerYear]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FrequencyPerYear]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="FrequencyPerYear" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[NKDrub]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NKDrub]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="NKDrub" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DurationYears]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DurationYears]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="DurationYears" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[DateOfCoupon_]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfCoupon_]"
                       dataType="i4"
                       name="DateOfCoupon_" />
                     <externalMetadataColumn
-                      refId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].ExternalColumns[Offer]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Offer]"
                       codePage="1251"
                       dataType="str"
                       length="50"
                       name="Offer" />
+                    <externalMetadataColumn
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TypeOfBond]"
+                      dataType="i4"
+                      name="TypeOfBond" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Parse Data from HTML\STG_table.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;]"
+                  refId="Package\Parse Data from HTML\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;"
-                  synchronousInputId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;]">
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Parse Data from HTML\STG_table.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[ErrorCode]"
+                      lineageId="Package\Parse Data from HTML\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Parse Data from HTML\STG_table.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      refId="Package\Parse Data from HTML\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Parse Data from HTML\STG_table.Outputs[Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С” Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;].Columns[ErrorColumn]"
+                      lineageId="Package\Parse Data from HTML\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6179,6 +6437,348 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               version="1">
               <inputs>
                 <input
+                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NumInTable]"
+                      cachedDataType="i4"
+                      cachedName="NumInTable"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NumInTable]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NumInTable]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[TimeOfBound]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TimeOfBound"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[TimeOfBound]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TimeOfBound]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfBound]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DateOfBound"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateOfBound]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfBound]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateTimeOfBound]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DateTimeOfBound"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateTimeOfBound]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NameOfBound]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NameOfBound"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NameOfBound]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NameOfBound]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[BoundId]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BoundId"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[BoundId]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[BoundId]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[redemption]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="redemption"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[redemption]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[redemption]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[YearsToRedemption]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="YearsToRedemption"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[YearsToRedemption]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[YearsToRedemption]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DoxodnosTb]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DoxodnosTb"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DoxodnosTb]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DoxodnosTb]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[GodCupDox]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GodCupDox"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[GodCupDox]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[GodCupDox]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[CupDoxPosl]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CupDoxPosl"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[CupDoxPosl]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CupDoxPosl]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Price]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Price"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[Price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[AmountOfMoneyMillion]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AmountOfMoneyMillion"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[AmountOfMoneyMillion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[AmountOfMoneyMillion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[CuponPrice]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CuponPrice"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[CuponPrice]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CuponPrice]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[FrequencyPerYear]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FrequencyPerYear"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[FrequencyPerYear]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[FrequencyPerYear]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NKDrub]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NKDrub"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NKDrub]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NKDrub]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DurationYears]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DurationYears"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DurationYears]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DurationYears]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfCoupon]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DateOfCoupon"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateOfCoupon]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfCoupon]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Offer]"
+                      cachedCodepage="1251"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Offer"
+                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[Offer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Offer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[TypeOfBond]"
+                      cachedDataType="i4"
+                      cachedName="TypeOfBond"
+                      lineageId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Output].Columns[TypeOfBond]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateTimeOfBound_]"
+                      cachedDataType="dbTime"
+                      cachedName="DateTimeOfBound_"
+                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[DateTimeOfBound_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound_]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Redemption_]"
+                      cachedDataType="i4"
+                      cachedName="Redemption_"
+                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[Redemption_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Redemption_]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfCoupon_]"
+                      cachedDataType="i4"
+                      cachedName="DateOfCoupon_"
+                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfCoupon_]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfCoupon_]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
                   refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 2]"
                   hasSideEffects="true"
                   name="Union All Input 2">
@@ -6467,6 +7067,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 2].Columns[TypeOfBond]"
+                      cachedDataType="i4"
+                      cachedName="TypeOfBond"
+                      lineageId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Output].Columns[TypeOfBond]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 2].Columns[DateTimeOfBound_]"
                       cachedDataType="dbTime"
                       cachedName="DateTimeOfBound_"
@@ -6509,12 +7122,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4]"
+                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3]"
                   hasSideEffects="true"
-                  name="Union All Input 4">
+                  name="Union All Input 3">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[NumInTable]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[NumInTable]"
                       cachedDataType="i4"
                       cachedName="NumInTable"
                       lineageId="Package\Parse Data from HTML\subfed.Outputs[Output].Columns[NumInTable]">
@@ -6527,7 +7140,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[TimeOfBound]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[TimeOfBound]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6542,7 +7155,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DateOfBound]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DateOfBound]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6557,7 +7170,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DateTimeOfBound]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DateTimeOfBound]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6572,7 +7185,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[NameOfBound]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[NameOfBound]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6587,7 +7200,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[BoundId]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[BoundId]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6602,7 +7215,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[redemption]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[redemption]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6617,7 +7230,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[YearsToRedemption]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[YearsToRedemption]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6632,7 +7245,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DoxodnosTb]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DoxodnosTb]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6647,7 +7260,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[GodCupDox]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[GodCupDox]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6662,7 +7275,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[CupDoxPosl]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[CupDoxPosl]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6677,7 +7290,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[Price]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[Price]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6692,7 +7305,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[AmountOfMoneyMillion]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[AmountOfMoneyMillion]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6707,7 +7320,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[CuponPrice]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[CuponPrice]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6722,7 +7335,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[FrequencyPerYear]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[FrequencyPerYear]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6737,7 +7350,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[NKDrub]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[NKDrub]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6752,7 +7365,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DurationYears]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DurationYears]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6767,7 +7380,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DateOfCoupon]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DateOfCoupon]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6782,7 +7395,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[Offer]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[Offer]"
                       cachedCodepage="1251"
                       cachedDataType="str"
                       cachedLength="50"
@@ -6797,7 +7410,20 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DateTimeOfBound_]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[TypeOfBond]"
+                      cachedDataType="i4"
+                      cachedName="TypeOfBond"
+                      lineageId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Output].Columns[TypeOfBond]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DateTimeOfBound_]"
                       cachedDataType="dbTime"
                       cachedName="DateTimeOfBound_"
                       lineageId="Package\Parse Data from HTML\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[DateTimeOfBound_]">
@@ -6810,7 +7436,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[Redemption_]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[Redemption_]"
                       cachedDataType="i4"
                       cachedName="Redemption_"
                       lineageId="Package\Parse Data from HTML\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[Redemption_]">
@@ -6823,7 +7449,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4].Columns[DateOfCoupon_]"
+                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3].Columns[DateOfCoupon_]"
                       cachedDataType="i4"
                       cachedName="DateOfCoupon_"
                       lineageId="Package\Parse Data from HTML\Data Conversion 1 1.Outputs[Data Conversion Output].Columns[DateOfCoupon_]">
@@ -6839,340 +7465,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1]"
-                  hasSideEffects="true"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NumInTable]"
-                      cachedDataType="i4"
-                      cachedName="NumInTable"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NumInTable]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NumInTable]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[TimeOfBound]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TimeOfBound"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[TimeOfBound]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TimeOfBound]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfBound]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DateOfBound"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateOfBound]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfBound]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateTimeOfBound]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DateTimeOfBound"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateTimeOfBound]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NameOfBound]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="NameOfBound"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NameOfBound]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NameOfBound]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[BoundId]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="BoundId"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[BoundId]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[BoundId]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[redemption]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="redemption"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[redemption]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[redemption]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[YearsToRedemption]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="YearsToRedemption"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[YearsToRedemption]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[YearsToRedemption]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DoxodnosTb]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DoxodnosTb"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DoxodnosTb]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DoxodnosTb]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[GodCupDox]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="GodCupDox"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[GodCupDox]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[GodCupDox]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[CupDoxPosl]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CupDoxPosl"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[CupDoxPosl]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CupDoxPosl]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Price]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Price"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[Price]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Price]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[AmountOfMoneyMillion]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="AmountOfMoneyMillion"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[AmountOfMoneyMillion]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[AmountOfMoneyMillion]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[CuponPrice]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="CuponPrice"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[CuponPrice]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[CuponPrice]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[FrequencyPerYear]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="FrequencyPerYear"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[FrequencyPerYear]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[FrequencyPerYear]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[NKDrub]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="NKDrub"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[NKDrub]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[NKDrub]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DurationYears]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DurationYears"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DurationYears]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DurationYears]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfCoupon]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="DateOfCoupon"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[DateOfCoupon]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfCoupon]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Offer]"
-                      cachedCodepage="1251"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Offer"
-                      lineageId="Package\Parse Data from HTML\Corporate.Outputs[Output].Columns[Offer]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Offer]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateTimeOfBound_]"
-                      cachedDataType="dbTime"
-                      cachedName="DateTimeOfBound_"
-                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[DateTimeOfBound_]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound_]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[Redemption_]"
-                      cachedDataType="i4"
-                      cachedName="Redemption_"
-                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[Redemption_]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Redemption_]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1].Columns[DateOfCoupon_]"
-                      cachedDataType="i4"
-                      cachedName="DateOfCoupon_"
-                      lineageId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfCoupon_]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateOfCoupon_]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3]"
+                  refId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4]"
                   dangling="true"
                   hasSideEffects="true"
-                  name="Union All Input 3">
+                  name="Union All Input 4">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -7313,6 +7609,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[Offer]"
                       name="Offer" />
                     <outputColumn
+                      refId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]"
+                      dataType="i4"
+                      lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[TypeOfBond]"
+                      name="TypeOfBond" />
+                    <outputColumn
                       refId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound_]"
                       dataType="dbTime"
                       lineageId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1].Columns[DateTimeOfBound_]"
@@ -7336,37 +7637,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           <paths>
             <path
               refId="Package\Parse Data from HTML.Paths[Data Conversion Output]"
-              endId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 2]"
-              name="Data Conversion Output"
-              startId="Package\Parse Data from HTML\Data Conversion 1.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Parse Data from HTML.Paths[Data Conversion Output1]"
-              endId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 4]"
-              name="Data Conversion Output"
-              startId="Package\Parse Data from HTML\Data Conversion 1 1.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Parse Data from HTML.Paths[Data Conversion Output2]"
               endId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 1]"
               name="Data Conversion Output"
               startId="Package\Parse Data from HTML\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Parse Data from HTML.Paths[Output]"
-              endId="Package\Parse Data from HTML\Data Conversion 1.Inputs[Data Conversion Input]"
-              name="Output"
-              startId="Package\Parse Data from HTML\OFZ.Outputs[Output]" />
+              refId="Package\Parse Data from HTML.Paths[Data Conversion Output1]"
+              endId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 2]"
+              name="Data Conversion Output"
+              startId="Package\Parse Data from HTML\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Parse Data from HTML.Paths[Output1]"
-              endId="Package\Parse Data from HTML\Data Conversion 1 1.Inputs[Data Conversion Input]"
-              name="Output"
-              startId="Package\Parse Data from HTML\subfed.Outputs[Output]" />
+              refId="Package\Parse Data from HTML.Paths[Data Conversion Output2]"
+              endId="Package\Parse Data from HTML\Union All.Inputs[Union All Input 3]"
+              name="Data Conversion Output"
+              startId="Package\Parse Data from HTML\Data Conversion 1 1.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Parse Data from HTML.Paths[Output2]"
+              refId="Package\Parse Data from HTML.Paths[Derived Column Output]"
               endId="Package\Parse Data from HTML\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Parse Data from HTML\add 1 as Corporate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Parse Data from HTML.Paths[Derived Column Output1]"
+              endId="Package\Parse Data from HTML\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Parse Data from HTML\add 2 as OFZ.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Parse Data from HTML.Paths[Derived Column Output2]"
+              endId="Package\Parse Data from HTML\Data Conversion 1 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Parse Data from HTML\add 3 as subfed.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Parse Data from HTML.Paths[Output]"
+              endId="Package\Parse Data from HTML\add 1 as Corporate.Inputs[Derived Column Input]"
               name="Output"
               startId="Package\Parse Data from HTML\Corporate.Outputs[Output]" />
             <path
+              refId="Package\Parse Data from HTML.Paths[Output1]"
+              endId="Package\Parse Data from HTML\add 2 as OFZ.Inputs[Derived Column Input]"
+              name="Output"
+              startId="Package\Parse Data from HTML\OFZ.Outputs[Output]" />
+            <path
+              refId="Package\Parse Data from HTML.Paths[Output2]"
+              endId="Package\Parse Data from HTML\add 3 as subfed.Inputs[Derived Column Input]"
+              name="Output"
+              startId="Package\Parse Data from HTML\subfed.Outputs[Output]" />
+            <path
               refId="Package\Parse Data from HTML.Paths[Union All Output 1]"
-              endId="Package\Parse Data from HTML\STG_table.Inputs[Р вЂ™РЎвЂ¦Р С•Р Т‘ Р Р…Р В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ &quot;OLE DB&quot;]"
+              endId="Package\Parse Data from HTML\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Union All Output 1"
               startId="Package\Parse Data from HTML\Union All.Outputs[Union All Output 1]" />
           </paths>
@@ -7377,7 +7693,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package\Truncate STG"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Р вЂ”Р В°Р Т‘Р В°РЎвЂЎР В° &quot;Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…Р ВµР Р…Р С‘Р Вµ SQL&quot;"
-      DTS:DTSID="{DE5B035B-C110-403D-96AC-B01D67124B63}"
+      DTS:DTSID="{80AC9880-FC6F-4D40-B5F1-4F0CE1EF3218}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate STG"
@@ -7386,7 +7702,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{9A497571-9649-4B32-A89B-A60E86296CD4}"
+          SQLTask:Connection="{CB499C04-F0FD-4D3F-B411-24CF2E7638D0}"
           SQLTask:SqlStatementSource="truncate table [dbo].[STG_TABLE];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -7395,7 +7711,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{BB4025D8-7E5A-4386-A3BB-E1BE4C4A633F}"
+      DTS:DTSID="{A2DFF298-87A3-469E-9513-E3BF90353490}"
       DTS:From="Package\Truncate STG"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -7403,7 +7719,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{930DDD42-7692-4D0F-BD0D-4128A63B0E70}"
+      DTS:DTSID="{778E5BF6-6522-48F4-99B2-6BD83AF35969}"
       DTS:From="Package\Parse Data from HTML"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -7424,18 +7740,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="202,42"
           Id="Package\Get data from STG Table"
-          TopLeft="165,200" />
+          TopLeft="254,203" />
         <NodeLayout
           Size="192,42"
           Id="Package\Parse Data from HTML"
-          TopLeft="170,125" />
+          TopLeft="259,128" />
         <NodeLayout
           Size="143,42"
           Id="Package\Truncate STG"
-          TopLeft="199,49" />
+          TopLeft="288,52" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="268.25,91">
+          TopLeft="357.25,94">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7457,7 +7773,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="266,167">
+          TopLeft="355,170">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7484,49 +7800,35 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package\Get data from STG Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Get data from STG Table\Destinations Q__Bounds"
+          TopLeft="291,232" />
         <NodeLayout
           Size="158,42"
           Id="Package\Get data from STG Table\Data sourse STG"
           TopLeft="306,125" />
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Get data from STG Table\Destinations Q__Bounds"
-          TopLeft="280,273" />
         <EdgeLayout
           Id="Package\Get data from STG Table.Paths[Р вЂ™РЎвЂ№РЎвЂ¦Р С•Р Т‘ Р С‘РЎРѓРЎвЂљР С•РЎвЂЎР Р…Р С‘Р С”Р В° &quot;OLE DB&quot;]"
-          TopLeft="385,167">
+          TopLeft="386.5,167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8,106"
+              EndConnector="0,65"
               Start="0,0"
-              End="-8,98.5">
+              End="0,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,49"
-                    Point2="0,53"
-                    Point3="-4,53" />
-                  <mssgle:LineSegment
-                    End="-4,53" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,53"
-                    Point2="-8,53"
-                    Point3="-8,57" />
-                  <mssgle:LineSegment
-                    End="-8,98.5" />
+                    End="0,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7557,75 +7859,65 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     design-time-name="Package\Parse Data from HTML">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Parse Data from HTML\Union All"
-          TopLeft="528,307" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Parse Data from HTML\Corporate"
-          TopLeft="210,102" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\Parse Data from HTML\STG_table"
-          TopLeft="506,387" />
-        <NodeLayout
-          Size="112,42"
-          Id="Package\Parse Data from HTML\subfed"
-          TopLeft="800,101" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="101,42"
           Id="Package\Parse Data from HTML\OFZ"
-          TopLeft="532,103" />
+          TopLeft="516,49" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Parse Data from HTML\Corporate"
+          TopLeft="208,53" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\Parse Data from HTML\add 2 as OFZ"
+          TopLeft="491,121" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Parse Data from HTML\Data Conversion"
+          TopLeft="197,202" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Parse Data from HTML\OLE DB Destination"
+          TopLeft="494,397" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Parse Data from HTML\Data Conversion 1"
+          TopLeft="486,221" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Parse Data from HTML\subfed"
+          TopLeft="788,44" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Parse Data from HTML\Union All"
+          TopLeft="516,316" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Parse Data from HTML\add 3 as subfed"
+          TopLeft="768,125" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Parse Data from HTML\add 1 as Corporate"
+          TopLeft="195,125" />
         <NodeLayout
           Size="179,42"
           Id="Package\Parse Data from HTML\Data Conversion 1 1"
           TopLeft="761,192" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Parse Data from HTML\Data Conversion 1"
-          TopLeft="501,199" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Parse Data from HTML\Data Conversion"
-          TopLeft="203,207" />
-        <EdgeLayout
-          Id="Package\Parse Data from HTML.Paths[Union All Output 1]"
-          TopLeft="590,349">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Output2]"
-          TopLeft="282.75,144">
+          TopLeft="845.25,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="0,39"
               Start="0,0"
-              End="0,55.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="0,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7636,18 +7928,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Output1]"
-          TopLeft="853.25,143">
+          TopLeft="565.25,91">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="0,30"
               Start="0,0"
-              End="0,41.5">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,22.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7658,18 +7950,84 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Output]"
-          TopLeft="582.5,145">
+          TopLeft="280.25,95">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,30"
               Start="0,0"
-              End="0,46.5">
+              End="0,22.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parse Data from HTML.Paths[Derived Column Output2]"
+          TopLeft="848.5,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parse Data from HTML.Paths[Derived Column Output1]"
+          TopLeft="567.5,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parse Data from HTML.Paths[Derived Column Output]"
+          TopLeft="280,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7680,30 +8038,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Data Conversion Output2]"
-          TopLeft="284.5,249">
+          TopLeft="850.5,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="276.25,58"
+              EndConnector="-244.25,82"
               Start="0,0"
-              End="276.25,50.5">
+              End="-244.25,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.8461538461538" />
+                    End="0,49.5066312997348" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.8461538461538"
-                    Point2="0,37.8461538461538"
-                    Point3="4,37.8461538461538" />
+                    Point1="0,49.5066312997348"
+                    Point2="0,53.5066312997348"
+                    Point3="-4,53.5066312997348" />
                   <mssgle:LineSegment
-                    End="272.25,37.8461538461538" />
+                    End="-240.25,53.5066312997348" />
                   <mssgle:CubicBezierSegment
-                    Point1="272.25,37.8461538461538"
-                    Point2="276.25,37.8461538461538"
-                    Point3="276.25,41.8461538461538" />
+                    Point1="-240.25,53.5066312997348"
+                    Point2="-244.25,53.5066312997348"
+                    Point3="-244.25,57.5066312997348" />
                   <mssgle:LineSegment
-                    End="276.25,50.5" />
+                    End="-244.25,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7714,30 +8072,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Data Conversion Output1]"
-          TopLeft="850.5,234">
+          TopLeft="574.25,263">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-232.25,73"
+              EndConnector="0,53"
               Start="0,0"
-              End="-232.25,65.5">
+              End="0,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.6339522546419" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.6339522546419"
-                    Point2="0,47.6339522546419"
-                    Point3="-4,47.6339522546419" />
-                  <mssgle:LineSegment
-                    End="-228.25,47.6339522546419" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-228.25,47.6339522546419"
-                    Point2="-232.25,47.6339522546419"
-                    Point3="-232.25,51.6339522546419" />
-                  <mssgle:LineSegment
-                    End="-232.25,65.5" />
+                    End="0,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7748,18 +8094,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Parse Data from HTML.Paths[Data Conversion Output]"
-          TopLeft="586,241">
+          TopLeft="278.5,244">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="270.25,72"
               Start="0,0"
-              End="0,58.5">
+              End="270.25,64.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,42.9814323607427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.9814323607427"
+                    Point2="0,46.9814323607427"
+                    Point3="4,46.9814323607427" />
+                  <mssgle:LineSegment
+                    End="266.25,46.9814323607427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="266.25,46.9814323607427"
+                    Point2="270.25,46.9814323607427"
+                    Point3="270.25,50.9814323607427" />
+                  <mssgle:LineSegment
+                    End="270.25,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Parse Data from HTML.Paths[Union All Output 1]"
+          TopLeft="580,358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7771,5 +8151,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Parse Data from HTML\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
